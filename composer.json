@@ -10,7 +10,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Centretek\\Environment": "src/"
+            "Centretek\\Environment\\": "src/"
         }
     }
 }
