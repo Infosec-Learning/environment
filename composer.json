@@ -1,0 +1,13 @@
+{
+    "name": "centretek/environment",
+    "description": "Common classes for determining platform and environment.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Patrick Wilson",
+            "email": "pwilson@centretek.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
