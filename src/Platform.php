@@ -10,12 +10,13 @@ class Platform {
   const OTHER = 'other';
 
   public static function getPlatform() {
-    if (getenv('AH_SITE_ENVIRONMENT')) {
-      return static::ACQUIA;
+    // Lando comes first, as the 'acquia' recipe has AH_SITE_ENVIRONMENT defined.
+    if (getenv('LANDO_INFO')) {
+      return static::LANDO;
     } elseif (defined('PANTHEON_ENVIRONMENT')) {
       return static::PANTHEON;
-    } elseif (getenv('LANDO_INFO')) {
-      return static::LANDO;
+    } elseif (getenv('AH_SITE_ENVIRONMENT')) {
+      return static::ACQUIA;
     } else {
       return static::OTHER;
     }
