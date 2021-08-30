@@ -32,6 +32,24 @@ class Environment {
           default:
             return static::DEV;
         }
+      case Platform::CONTEGIX:
+        switch ($_ENV['CONTEGIX_ENVIRONMENT']) {
+          case 'prod':
+            return static::PROD;
+          case 'test':
+            return static::STAGING;
+          default:
+            return static::DEV;
+        }
+      case Platform::CONTEGIX:
+        switch ($_ENV['AWS_ENVIRONMENT']) {
+          case 'prod':
+            return static::PROD;
+          case 'test':
+            return static::STAGING;
+          default:
+            return static::DEV;
+        }
       case Platform::LANDO:
         return static::LOCAL;
       case Platform::OTHER:
