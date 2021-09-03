@@ -7,6 +7,8 @@ class Platform {
   const ACQUIA = 'acquia';
   const PANTHEON = 'pantheon';
   const LANDO = 'lando';
+  const CONTEGIX = 'contegix';
+  const AWS = 'aws';
   const OTHER = 'other';
 
   public static function getPlatform() {
@@ -17,6 +19,10 @@ class Platform {
       return static::PANTHEON;
     } elseif (getenv('AH_SITE_ENVIRONMENT')) {
       return static::ACQUIA;
+    } elseif (getenv('CONTEGIX_ENVIRONMENT')) {
+      return static::CONTEGIX;
+    } elseif (getenv('AWS_ENVIRONMENT')) {
+      return static::AWS;
     } else {
       return static::OTHER;
     }
