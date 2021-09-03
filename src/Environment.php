@@ -41,7 +41,7 @@ class Environment {
           default:
             return static::DEV;
         }
-      case Platform::CONTEGIX:
+      case Platform::AWS:
         switch ($_ENV['AWS_ENVIRONMENT']) {
           case 'prod':
             return static::PROD;
