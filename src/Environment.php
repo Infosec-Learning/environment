@@ -32,7 +32,7 @@ class Environment {
           default:
             return static::DEV;
         }
-      case Platform::PLATFORM:
+      case Platform::PLATFORM_SH:
         switch ($_ENV['PLATFORM_ENVIRONMENT']) {
           case 'main':
           case 'master':

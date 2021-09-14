@@ -6,7 +6,7 @@ class Platform {
 
   const ACQUIA = 'acquia';
   const PANTHEON = 'pantheon';
-  const PLATFORM = 'platform'; // platform.sh
+  const PLATFORM_SH = 'platform_sh';
   const LANDO = 'lando';
   const CONTEGIX = 'contegix';
   const AWS = 'aws';
@@ -19,7 +19,7 @@ class Platform {
     } elseif (defined('PANTHEON_ENVIRONMENT')) {
       return static::PANTHEON;
     } elseif (getenv('PLATFORM_PROJECT')) {
-      return static::PLATFORM;
+      return static::PLATFORM_SH;
     } elseif (getenv('AH_SITE_ENVIRONMENT')) {
       return static::ACQUIA;
     } elseif (getenv('CONTEGIX_ENVIRONMENT')) {
