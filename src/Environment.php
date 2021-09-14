@@ -32,6 +32,18 @@ class Environment {
           default:
             return static::DEV;
         }
+      case Platform::PLATFORM_SH:
+        switch ($_ENV['PLATFORM_ENVIRONMENT']) {
+          case 'main':
+          case 'master':
+            return static::PROD;
+          case 'stage':
+          case 'staging':
+          case 'test':
+            return static::STAGING;
+          default:
+            return static::DEV;
+        }
       case Platform::CONTEGIX:
         switch ($_ENV['CONTEGIX_ENVIRONMENT']) {
           case 'prod':
