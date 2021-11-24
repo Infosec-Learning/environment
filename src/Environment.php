@@ -33,13 +33,10 @@ class Environment {
             return static::DEV;
         }
       case Platform::PLATFORM_SH:
-        switch ($_ENV['PLATFORM_ENVIRONMENT']) {
-          case 'main':
-          case 'master':
+        switch ($_ENV['PLATFORM_ENVIRONMENT_TYPE']) {
+          case 'production':
             return static::PROD;
-          case 'stage':
           case 'staging':
-          case 'test':
             return static::STAGING;
           default:
             return static::DEV;
