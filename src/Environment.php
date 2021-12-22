@@ -14,9 +14,6 @@ class Environment {
    */
   public static function getEnvironment() {
     switch (Platform::getPlatform()) {
-      case Platform::DOCKSAL:
-      case Platform::LANDO:
-        return static::LOCAL;
       case Platform::ACQUIA:
         switch ($_ENV['AH_SITE_ENVIRONMENT']) {
           case 'prod':
@@ -62,6 +59,9 @@ class Environment {
           default:
             return static::DEV;
         }
+      case Platform::DOCKSAL:
+      case Platform::LANDO:
+        return static::LOCAL;
       case Platform::OTHER:
         // @TODO CTEK_ENV maybe?
         break;
