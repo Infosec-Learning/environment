@@ -61,9 +61,8 @@ class Environment {
         }
       case Platform::DOCKSAL:
       case Platform::LANDO:
-        return static::LOCAL;
       case Platform::OTHER:
-        // @TODO CTEK_ENV maybe?
+        return static::LOCAL;
         break;
     }
     throw new \Exception('Unable to determine environment.');
