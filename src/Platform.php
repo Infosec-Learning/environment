@@ -5,6 +5,7 @@ namespace Centretek\Environment;
 class Platform {
 
   const ACQUIA = 'acquia';
+  const DDEV = 'ddev';
   const DOCKSAL = 'docksal';
   const PANTHEON = 'pantheon';
   const PLATFORM_SH = 'platform_sh';
@@ -14,8 +15,10 @@ class Platform {
   const OTHER = 'other';
 
   public static function getPlatform() {
-    // Lando comes first, as the 'acquia' recipe has AH_SITE_ENVIRONMENT defined.
-    if (getenv('LANDO_INFO')) {
+    // Lando/DDEV comes first
+    if (getenv('IS_DDEV_PROJECT') == 'true') {
+      return static::DDEV;
+    } elseif (getenv('LANDO_INFO')) {
       return static::LANDO;
     } elseif (getenv('DOCKSAL')) {
       return static::DOCKSAL;

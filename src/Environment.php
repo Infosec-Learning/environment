@@ -59,6 +59,7 @@ class Environment {
           default:
             return static::DEV;
         }
+      case Platform::DDEV:
       case Platform::DOCKSAL:
       case Platform::LANDO:
       case Platform::OTHER:
